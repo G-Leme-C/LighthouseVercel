@@ -159,8 +159,9 @@ export function Form() {
               <InputGroup>
                 <InputLeftElement
                   pointerEvents="none"
-                  children={<Icon as={RiPhoneFill} color="gray.600" />}
-                />
+                >
+                  <Icon as={RiPhoneFill} color="gray.600" />
+                </InputLeftElement>
                 <Input
                   type="tel"
                   placeholder="Telefone"

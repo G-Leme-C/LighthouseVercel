@@ -107,6 +107,7 @@ export default function Partners() {
                       .fill('')
                       .map((_, i) => (
                         <Icon
+                        key={i}
                           as={RiStarFill}
                           color={i < ong.rating ? 'green.500' : 'gray.300'}
                         />
