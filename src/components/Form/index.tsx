@@ -246,6 +246,8 @@ export function Form() {
             <FormControl>
               <FormLabel color="red.600">Quantidade de pessoas</FormLabel>
               <Input
+                min="1"
+                max="20"
                 placeholder="Digite a quantidade de pessoas no local"
                 borderColor="gray.900"
                 type="number"
@@ -277,7 +279,7 @@ export function Form() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Existem crinças no local ?</FormLabel>
+              <FormLabel color="red.600">Existem crianças no local ?</FormLabel>
               <Select {...register('isThereChildren')} borderColor="gray.900">
                 <option value="0">Sim</option>
                 <option value="1">Nao</option>
@@ -299,13 +301,15 @@ export function Form() {
             </FormControl>
             <FormControl>
               <FormLabel color="red.600">Nível de urgência</FormLabel>
-              <Input
-                placeholder="Digite um número de 0 a 3"
+              <Select
                 borderColor="gray.900"
-                type="number"
                 _hover={{ textDecoration: 'none' }}
                 {...register('urgencyLevel')}
-              />
+              >
+                <option value="0">Baixo</option>
+                <option value="1">Médio</option>
+                <option value="2">Alto</option>
+              </Select>
             </FormControl>
           </SimpleGrid>
           <FormControl marginTop="5">

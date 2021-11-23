@@ -44,8 +44,8 @@ export function HeaderNav() {
     >
       <Image
         src="/lighthouse.png"
-        height="80px"
-        width="80px"
+        height="95px"
+        width="130px"
         alt="Logo lighthouse(Farol)"
       />
       <Stack ml={[0, '20']}>
@@ -59,6 +59,7 @@ export function HeaderNav() {
             <ActiveLink href="/home">
               <Text
                 fontSize="xl"
+                fontWeight="bold"
                 cursor="pointer"
                 _hover={{ color: 'red.500' }}
               >
@@ -71,6 +72,7 @@ export function HeaderNav() {
             <ActiveLink href="/">
               <Text
                 fontSize="xl"
+                fontWeight="bold"
                 cursor="pointer"
                 _hover={{ color: 'red.500' }}
               >
@@ -83,6 +85,7 @@ export function HeaderNav() {
             <ActiveLink href="/partners">
               <Text
                 fontSize="xl"
+                fontWeight="bold"
                 cursor="pointer"
                 _hover={{ color: 'red.500' }}
               >
