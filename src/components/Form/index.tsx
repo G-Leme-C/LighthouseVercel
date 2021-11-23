@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { InputMask } from 'react-input-mask';
 import {
   Flex,
   Input,
@@ -18,6 +19,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 
+import { useRouter } from 'next/router';
 import { RiPhoneFill } from 'react-icons/ri';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { api } from '../../api';
@@ -45,6 +47,8 @@ type handlePostFormProps = {
 };
 
 export function Form() {
+  const router = useRouter();
+
   const regExEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const toast = useToast();
@@ -53,11 +57,11 @@ export function Form() {
 
   const [isNextFormOpen, setIsNextFormOpen] = useState(false);
 
-  const createErrorToast = (errorMessage) => {
+  const createToast = (errorMessage, toastStatus) => {
     toast({
-      title: 'Erro',
+      title: 'Aviso',
       description: errorMessage,
-      status: 'error',
+      status: toastStatus,
       duration: 5000,
       isClosable: true,
     });
@@ -65,28 +69,29 @@ export function Form() {
 
   const validateForm = async (values) => {
     if (!values.userReporter.name || values.userReporter.name.length === 0) {
-      createErrorToast('Preencha o nome.');
+      createToast('Preencha o nome.', 'error');
       setIsNextFormOpen(false);
       return false;
     }
 
     if (!values.userReporter.email || values.userReporter.email.length === 0) {
-      createErrorToast('O e-mail é obrigatório.');
+      createToast('O e-mail é obrigatório.', 'error');
       setIsNextFormOpen(false);
       return false;
     }
 
     if (values.userReporter.email.length > 0) {
       if (regExEmail.test(values.userReporter.email) === false) {
-        createErrorToast('O e-mail preenchido é inválido.');
+        createToast('O e-mail preenchido é inválido.', 'error');
         setIsNextFormOpen(false);
         return false;
       }
     }
 
     if (!values.location.address || values.location.address === 0) {
-      createErrorToast(
-        'Preencha o endereço (mesmo que seja um endereço aproximado).'
+      createToast(
+        'Preencha o endereço (mesmo que seja um endereço aproximado).',
+        'error'
       );
       setIsNextFormOpen(true);
       return false;
@@ -105,17 +110,21 @@ export function Form() {
     values.numberOfPeople = Number(values.numberOfPeople);
     values.isThereVisibleShelter = Number(values.isThereVisibleShelter);
 
-    if (!validateForm(values)) return;
+    
+    if (!(await validateForm(values))) return;
 
     api
       .post('', values)
       .then((response) => {
+        console.log(response);
+        createToast('Informe registrado com sucesso!', 'success');
+        router.push('/home');
         return response.data;
       })
       .catch((error) => {
         console.log(error.response);
-        if (error.response.data.message) {
-          createErrorToast(error.response.data.message);
+        if (error.response.data) {
+          createToast(error.response.data.message, 'error');
         }
       });
   };
@@ -163,8 +172,7 @@ export function Form() {
                   <Icon as={RiPhoneFill} color="gray.600" />
                 </InputLeftElement>
                 <Input
-                  type="tel"
-                  placeholder="Telefone"
+                  placeholder="Digite seu telefone"
                   borderColor="gray.900"
                   _hover={{ textDecoration: 'none' }}
                   {...register('userReporter.phoneNumber')}

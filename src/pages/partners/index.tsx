@@ -11,6 +11,7 @@ import {
 import { RiStarFill } from 'react-icons/ri';
 import { DrawerIcon } from '../../components/DrawerIcon';
 import { Header } from '../../components/Header';
+import Head from 'next/head';
 
 export default function Partners() {
   const ongs = [
@@ -50,6 +51,10 @@ export default function Partners() {
       boxShadow="dark-lg"
       minHeight="90vh"
     >
+      <Head>
+        <title>Lighthouse</title>
+      </Head>
+
       <DrawerIcon />
       <Header />
 

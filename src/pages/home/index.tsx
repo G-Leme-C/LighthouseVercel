@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from 'react';
 import { api } from '../../api';
 import { DrawerIcon } from '../../components/DrawerIcon';
+import Head from 'next/head';
 
 export default function Home() {
   const [occurrences, setOccurrences] = useState([]);
@@ -39,6 +40,10 @@ export default function Home() {
       boxShadow="dark-lg"
       minHeight="90vh"
     >
+      <Head>
+        <title>Lighthouse</title>
+      </Head>
+      
       <DrawerIcon />
       <Header />
 

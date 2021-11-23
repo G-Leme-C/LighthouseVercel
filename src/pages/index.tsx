@@ -12,9 +12,15 @@ import { Header } from '../components/Header';
 import { useHeaderDrawer } from '../context/HeaderContextDrawer';
 import { RiMenuLine } from 'react-icons/ri';
 import { DrawerIcon } from '../components/DrawerIcon';
+import Head from 'next/head';
 
 export default function Home() {
   return (
+    <>
+    <Head>
+      <link rel="shortcut icon" href="/favicon.ico" />
+      <title>Lighthouse</title>
+    </Head>
     <Box
       maxWidth="90%"
       borderRadius="lg"
@@ -31,5 +37,6 @@ export default function Home() {
         <Form />
       </Box>
     </Box>
+    </>
   );
 }
