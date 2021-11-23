@@ -183,7 +183,7 @@ export function Form() {
             <FormControl>
               <FormLabel color="red.600">Bairro</FormLabel>
               <Input
-                placeholder="Rua em que você está"
+                placeholder="Bairro"
                 borderColor="gray.900"
                 _hover={{ textDecoration: 'none' }}
                 {...register('location.neighborhood')}
@@ -201,7 +201,7 @@ export function Form() {
             <FormControl>
               <FormLabel color="red.600">Ponto de referência</FormLabel>
               <Input
-                placeholder="Rua em que você está"
+                placeholder="Um ponto de referência que ajude a localizar o local."
                 borderColor="gray.900"
                 _hover={{ textDecoration: 'none' }}
                 {...register('location.referencePoints')}

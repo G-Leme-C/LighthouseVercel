@@ -1,4 +1,7 @@
 import { AppProps } from 'next/app';
+
+import "@fontsource/montserrat";
+
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from '../styles/theme';
 import { HeaderContextDrawerProvider } from '../context/HeaderContextDrawer';

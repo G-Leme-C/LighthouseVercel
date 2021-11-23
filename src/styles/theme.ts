@@ -10,7 +10,7 @@ export const theme = extendTheme({
     },
   },
   fonts: {
-    body: 'Inter',
-    headings: 'Inter',
+    body: 'Montserrat',
+    headings: 'Montserrat',
   },
 });

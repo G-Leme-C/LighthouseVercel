@@ -86,41 +86,12 @@ export function HeaderNav() {
                 cursor="pointer"
                 _hover={{ color: 'red.500' }}
               >
-                Cadastrar vulnerabilidade
+                Parceiros
               </Text>
             </ActiveLink>
           </Flex>
         </Flex>
       </Stack>
-      <Flex align="center" ml="auto" mt={['350px', '0']}>
-        <HStack
-          spacing={['6', '8']}
-          mx={['6', '8']}
-          pr={['6', '8']}
-          py="1"
-          borderRightWidth={1}
-          borderColor="gray.700"
-        >
-          <Icon as={RiNotificationLine} fontSize="20px" />
-          <Icon as={RiUserAddLine} fontSize="20px" />
-        </HStack>
-
-        <Flex>
-          {isWideVersion && (
-            <Box mr="4" textAlign="right">
-              <Text>Artur Ceschin</Text>
-              <Text color="gray.800" fontSize="small">
-                artur.ceschin@gmail.com
-              </Text>
-            </Box>
-          )}
-          <Avatar
-            size="md"
-            name="Artur Ceschin"
-            src="https://github.com/Artur-Ceschin.png"
-          />
-        </Flex>
-      </Flex>
     </Flex>
   );
 }

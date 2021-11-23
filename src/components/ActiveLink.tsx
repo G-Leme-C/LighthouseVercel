@@ -18,6 +18,7 @@ export function ActiveLink({ children, ...rest }: ActiveLinkProps) {
     <Link {...rest}>
       {cloneElement(children, {
         color: isActive ? 'red.600' : 'gray.900',
+        fontSize: 18
       })}
     </Link>
   );
