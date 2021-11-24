@@ -63,7 +63,7 @@ export function HeaderNav() {
                 cursor="pointer"
                 _hover={{ color: 'red.500' }}
               >
-                Home
+                Área do Parceiro
               </Text>
             </ActiveLink>
           </Flex>

@@ -8,6 +8,8 @@ import {
   HStack,
   SimpleGrid,
   Spinner,
+  Tag,
+  TagLabel
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { api } from '../../api';
@@ -17,6 +19,9 @@ import Head from 'next/head';
 export default function Home() {
   const [occurrences, setOccurrences] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const renderUrgencyLevel = ['Baixo', 'Médio', 'Alto'];
+  const urgencyLevelColor = ['blue', 'yellow', 'red'];
 
   useEffect(() => {
     try {
@@ -78,54 +83,62 @@ export default function Home() {
               overflow="hidden"
               bg="gray.100"
               h="auto"
-              p="8"
+              p="6"
               key={index}
             >
               <Stack spacing="1" marginBottom="3">
-                <Text>
-                  Nome : <span>{occurrence.userReporter.name}</span>
+                <Text fontWeight="bold" fontSize="18">Dados do informante:</Text>
+                <Text fontWeight="bold">
+                  Nome: <Text display="inline" fontWeight="light">{occurrence.userReporter.name}</Text>
                 </Text>
-                <Text>
-                  Email : <span>{occurrence.userReporter.email}</span>
+                <Text fontWeight="bold">
+                  Email: <Text display="inline" fontWeight="light">{occurrence.userReporter.email}</Text>
                 </Text>
-                <Text>
-                  Telefone : <span>{occurrence.userReporter.phoneNumber}</span>
+                <Text fontWeight="bold">
+                  Telefone: <Text display="inline" fontWeight="light">{occurrence.userReporter.phoneNumber}</Text>
                 </Text>
               </Stack>
-              <Stack spacing="1" marginBottom="3">
-                <Text>
-                  Cidade : <span>{occurrence.location.city}</span>
+              <Box width="auto" h="1" bg="gray.300" rounded="lg"/>
+              <Stack spacing="1" marginBottom="3" marginTop="3">
+                <Text fontWeight="bold" fontSize="18">Local:</Text>
+                <Text fontWeight="bold">
+                  Cidade: <Text display="inline" fontWeight="light">{occurrence.location.city}</Text>
                 </Text>
-                <Text>
-                  Bairro : <span>{occurrence.location.address}</span>
+                <Text fontWeight="bold">
+                  Bairro: <Text display="inline" fontWeight="light">{occurrence.location.address}</Text>
                 </Text>
-                <Text>
-                  Rua :{' '}
-                  <span>{occurrence.location.addressAproximateNumber}</span>
+                <Text fontWeight="bold">
+                  Rua:{' '}
+                  <Text display="inline" fontWeight="light">{occurrence.location.addressAproximateNumber}</Text>
                 </Text>
-                <Text>
+                <Text fontWeight="bold">
                   Ponto de referência :{' '}
-                  <span>{occurrence.location.referencePoints}</span>
+                  <Text display="inline" fontWeight="light">{occurrence.location.referencePoints}</Text>
                 </Text>
               </Stack>
-              <Stack spacing="1" marginBottom="3">
-                <Text>
+              <Box width="auto" h="1" bg="gray.300" rounded="lg"/>
+              <Stack spacing="1" marginBottom="3" marginTop="3">
+                <Text fontWeight="bold" fontSize="18"></Text>
+                <Text fontWeight="bold">
                   Quantidade de pessoas :{' '}
-                  <Text display="inline" color="red.500">
+                  <Text Text display="inline" fontWeight="light" color="red.500">
                     {occurrence.numberOfPeople}
                   </Text>
                 </Text>
-                <Text>
+                <Text fontWeight="bold">
                   Crianças no local :{' '}
-                  <Text display="inline" color="red.500">
+                  <Text Text display="inline" fontWeight="light" color="red.500">
                     {occurrence.isThereChildren === 0 ? 'Não' : 'Sim'}
                   </Text>
                 </Text>
-                <Text>
+                <Text fontWeight="bold">
                   Nível de urgência :{' '}
-                  <Text display="inline" color="red.500">
-                    {occurrence.urgencyLevel}
-                  </Text>
+                  <Tag size="lg" colorScheme={urgencyLevelColor[occurrence.urgencyLevel]}>
+                    <TagLabel fontWeight="bold">
+                      {renderUrgencyLevel[occurrence.urgencyLevel]}
+                    </TagLabel>
+                    
+                  </Tag>
                 </Text>
               </Stack>
               <HStack spacing="2">
