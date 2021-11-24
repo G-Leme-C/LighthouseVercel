@@ -45,7 +45,7 @@ export default function Partners() {
       maxWidth="90%"
       borderRadius="lg"
       borderWidth="1px"
-      bg="gray.200"
+      bg="gray.100"
       mx="auto"
       mt="10"
       boxShadow="dark-lg"

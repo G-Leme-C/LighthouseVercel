@@ -39,7 +39,7 @@ export default function Home() {
       maxWidth="90%"
       borderRadius="lg"
       borderWidth="1px"
-      bg="gray.200"
+      bg="gray.100"
       mx="auto"
       mt="10"
       boxShadow="dark-lg"
@@ -78,7 +78,8 @@ export default function Home() {
             <Box
               w="auto"
               minWidth={100}
-              borderWidth="1px"
+              borderWidth="2px"
+              borderColor="red.200"
               borderRadius="lg"
               overflow="hidden"
               bg="gray.100"
@@ -98,7 +99,7 @@ export default function Home() {
                   Telefone: <Text display="inline" fontWeight="light">{occurrence.userReporter.phoneNumber}</Text>
                 </Text>
               </Stack>
-              <Box width="auto" h="1" bg="gray.300" rounded="lg"/>
+              <Box width="auto" h="0.5" bg="red.200" rounded="lg"/>
               <Stack spacing="1" marginBottom="3" marginTop="3">
                 <Text fontWeight="bold" fontSize="18">Local:</Text>
                 <Text fontWeight="bold">
@@ -116,7 +117,7 @@ export default function Home() {
                   <Text display="inline" fontWeight="light">{occurrence.location.referencePoints}</Text>
                 </Text>
               </Stack>
-              <Box width="auto" h="1" bg="gray.300" rounded="lg"/>
+              <Box width="auto" h="0.5" bg="red.200" rounded="lg"/>
               <Stack spacing="1" marginBottom="3" marginTop="3">
                 <Text fontWeight="bold" fontSize="18"></Text>
                 <Text fontWeight="bold">

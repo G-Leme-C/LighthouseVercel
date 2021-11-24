@@ -139,6 +139,7 @@ export function Form() {
       mx="auto"
       mt="4"
       px="6"
+      bg="gray.100"
     >
       {isNextFormOpen === false && (
         <Box>

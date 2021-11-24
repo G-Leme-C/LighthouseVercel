@@ -24,7 +24,7 @@ export function DrawerIcon() {
           fontSize="30"
           variant="unstyled"
           onClick={onOpen}
-          ml="4"
+          ml="8"
           mt="4"
         ></IconButton>
       )}
