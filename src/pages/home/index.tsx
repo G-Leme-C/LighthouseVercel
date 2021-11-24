@@ -106,11 +106,11 @@ export default function Home() {
                   Cidade: <Text display="inline" fontWeight="light">{occurrence.location.city}</Text>
                 </Text>
                 <Text fontWeight="bold">
-                  Bairro: <Text display="inline" fontWeight="light">{occurrence.location.address}</Text>
+                  Bairro: <Text display="inline" fontWeight="light">{occurrence.location.neighborhood}</Text>
                 </Text>
                 <Text fontWeight="bold">
-                  Rua:{' '}
-                  <Text display="inline" fontWeight="light">{occurrence.location.addressAproximateNumber}</Text>
+                  Endereço:
+                  <Text display="inline" fontWeight="light"> {occurrence.location.address}</Text>
                 </Text>
                 <Text fontWeight="bold">
                   Ponto de referência :{' '}
@@ -138,7 +138,6 @@ export default function Home() {
                     <TagLabel fontWeight="bold">
                       {renderUrgencyLevel[occurrence.urgencyLevel]}
                     </TagLabel>
-                    
                   </Tag>
                 </Text>
               </Stack>
