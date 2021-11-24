@@ -19,7 +19,7 @@ export default function Home() {
     <>
     <Head>
       <link rel="shortcut icon" href="/favicon.ico" />
-      <title>Lighthouse</title>
+      <title>Lighthouse - Cadastrar pessoas em vulnerabilidade</title>
     </Head>
     <Box
       maxWidth="90%"

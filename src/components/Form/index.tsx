@@ -23,6 +23,7 @@ import { useRouter } from 'next/router';
 import { RiPhoneFill } from 'react-icons/ri';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { api } from '../../api';
+import { motion } from 'framer-motion';
 
 type handlePostFormProps = {
   userReporter: {
@@ -141,12 +142,12 @@ export function Form() {
     >
       {isNextFormOpen === false && (
         <Box>
-          <Text fontSize="2xl" fontWeight="semi-bold" my="8" textAlign="center">
+          <Text fontSize="2xl" fontWeight="bold" my="8" textAlign="center">
             Cadastrar pessoas em vulnerabilidade
           </Text>
           <SimpleGrid columns={[1, 1, 2]} gap={6}>
             <FormControl>
-              <FormLabel color="red.600">Nome</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Nome</FormLabel>
               <Input
                 placeholder="Digite seu nome"
                 borderColor="gray.900"
@@ -155,7 +156,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Email</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Email</FormLabel>
               <Input
                 placeholder="Digite seu email"
                 borderColor="gray.900"
@@ -164,7 +165,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Telefone</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Telefone</FormLabel>
               <InputGroup>
                 <InputLeftElement
                   pointerEvents="none"
@@ -180,7 +181,7 @@ export function Form() {
               </InputGroup>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Endereço</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Endereço</FormLabel>
               <Input
                 placeholder="Digite seu endereço"
                 borderColor="gray.900"
@@ -189,7 +190,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Bairro</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Bairro</FormLabel>
               <Input
                 placeholder="Bairro"
                 borderColor="gray.900"
@@ -198,7 +199,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Cidade</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Cidade</FormLabel>
               <Input
                 placeholder="Sua cidade"
                 borderColor="gray.900"
@@ -207,7 +208,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Ponto de referência</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Ponto de referência</FormLabel>
               <Input
                 placeholder="Um ponto de referência que ajude a localizar o local."
                 borderColor="gray.900"
@@ -217,7 +218,7 @@ export function Form() {
             </FormControl>
           </SimpleGrid>
           <FormControl marginTop="5">
-            <FormLabel color="red.600">
+            <FormLabel color="red.600" fontWeight="bold">
               Informações adicionais do local
             </FormLabel>
             <Textarea
@@ -252,7 +253,7 @@ export function Form() {
           </Text>
           <SimpleGrid columns={[1, 1, 2]} gap={6}>
             <FormControl>
-              <FormLabel color="red.600">Quantidade de pessoas</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Quantidade de pessoas</FormLabel>
               <Input
                 min="1"
                 max="20"
@@ -264,7 +265,7 @@ export function Form() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">
+              <FormLabel color="red.600" fontWeight="bold">
                 As pessoas identificadas possuem abrigo ?
               </FormLabel>
               <Select
@@ -277,7 +278,7 @@ export function Form() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">
+              <FormLabel color="red.600" fontWeight="bold">
                 Há alguém do sexo feminino :
               </FormLabel>
               <Select {...register('isThereWomen')} borderColor="gray.900">
@@ -287,7 +288,7 @@ export function Form() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Existem crianças no local ?</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Existem crianças no local ?</FormLabel>
               <Select {...register('isThereChildren')} borderColor="gray.900">
                 <option value="0">Sim</option>
                 <option value="1">Nao</option>
@@ -295,7 +296,7 @@ export function Form() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">
+              <FormLabel color="red.600" fontWeight="bold">
                 Necessitam de proteção térmica ?
               </FormLabel>
               <Select
@@ -308,7 +309,7 @@ export function Form() {
               </Select>
             </FormControl>
             <FormControl>
-              <FormLabel color="red.600">Nível de urgência</FormLabel>
+              <FormLabel color="red.600" fontWeight="bold">Nível de urgência</FormLabel>
               <Select
                 borderColor="gray.900"
                 _hover={{ textDecoration: 'none' }}
@@ -321,7 +322,7 @@ export function Form() {
             </FormControl>
           </SimpleGrid>
           <FormControl marginTop="5">
-            <FormLabel color="red.600">Situação no geral</FormLabel>
+            <FormLabel color="red.600" fontWeight="bold">Situação no geral</FormLabel>
             <Textarea
               {...register('medicalCareNeedsDescription')}
               borderColor="gray.900"
@@ -334,10 +335,12 @@ export function Form() {
           <Flex my="5" flexDirection={['column', 'column', 'column', 'row']}>
             <Button
               w={['100%', '100%', '100%', '60%']}
-              bg="red.600"
-              color="white"
+              bg="gray.200"
+              borderColor="red.600"
+              borderWidth="thin"
+              color="red.600"
               onClick={() => setIsNextFormOpen(false)}
-              _hover={{ bg: 'red.400' }}
+              _hover={{ bg: 'red.100' }}
               fontSize="2xl"
               h="12"
               mr="2"

@@ -52,7 +52,7 @@ export default function Partners() {
       minHeight="90vh"
     >
       <Head>
-        <title>Lighthouse</title>
+        <title>Lighthouse - Parceiros</title>
       </Head>
 
       <DrawerIcon />

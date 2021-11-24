@@ -46,7 +46,7 @@ export default function Home() {
       minHeight="90vh"
     >
       <Head>
-        <title>Lighthouse</title>
+        <title>Lighthouse - Área do Parceiro</title>
       </Head>
       
       <DrawerIcon />
@@ -61,7 +61,7 @@ export default function Home() {
         align="center"
         flexDirection="column"
       >
-        <Text fontSize="2xl" fontWeight="semi-bold">
+        <Text fontSize="2xl" fontWeight="bold">
           Casos cadastrados
         </Text>
         {loading && (
@@ -141,14 +141,6 @@ export default function Home() {
                   </Tag>
                 </Text>
               </Stack>
-              <HStack spacing="2">
-                <Text>Caso atendido</Text>
-                <Checkbox
-                  size="md"
-                  colorScheme="green"
-                  isChecked={occurrence.isThereNeedForMedicalCare}
-                ></Checkbox>
-              </HStack>
             </Box>
           ))}
         </SimpleGrid>
